@@ -1,10 +1,10 @@
 <html>
 <head>
-	<title>Nueva dirección</title>
+	<title>Editar dirección</title>
     <meta charset="UTF-8" />
 </head>
 <body>
-<h1>Nueva dirección</h1>
+<h1>Edite dirección</h1>
 <p><a href="<?php echo $_SERVER['PHP_SELF']; ?>?action=index">Regresar al listado de direcciones.</a></p>
 <form name="direccion" id="direccion" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
   <input name="action" type="hidden" value="cree" />

@@ -36,18 +36,19 @@ class DirectorioController extends Controller {
 		if (count($_POST) == 0) {
 			$libro = new LibroModel();
 
-			$direccion = $libro->busque($_GET['id']);
+			$direccion = $libro->busque($_GET['id'],0);
 
-			$this->view->assign('direccion', $direccion);
+            $this->view->assign('direccion', $direccion);
+            
+            $libro->borre($libro->busque($_GET['id'],1));
         }
-		
 	}
 
 	function borre()
 	{
 		$libro = new LibroModel();
         
-        if ($libro->borre($libro->busque($_GET['id'])))
+        if ($libro->borre($libro->busque($_GET['id'],1)))
 		{
 			$mensaje = 'Su dirección ha sido borrada satisfactoriamente.';
 		}

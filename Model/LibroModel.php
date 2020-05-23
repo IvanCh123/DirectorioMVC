@@ -21,20 +21,18 @@ class LibroModel
 		return file_put_contents('directorio.json', json_encode($json_arr));
 	}
 
-	function busque($correo){
+	function busque($correo, $tipo){
 		$data = file_get_contents('directorio.json');
 		
 		$json_arr = json_decode($data, true);
 
 		$arr_index = array();
 
-		print_r($json_arr);
 		foreach ($json_arr as $key => $value)
 		{
 			if ($value['correo'] == $correo)
 			{
-				print_r($key);
-				return $key;
+				return ($tipo==0)?$value:$key;
 			}
 		}
 	}
